@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Voice Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Voice Assistant</h1>
+        <button id="start-btn">Start Listening</button>
+        <div class="sound-wave">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <p id="output">Say something...</p>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        // JavaScript for animating the sound wave with more stability
+        const bars = document.querySelectorAll('.bar');
+        let interval;
+
+        document.getElementById('start-btn').addEventListener('click', () => {
+            clearInterval(interval);
+            interval = setInterval(() => {
+                bars.forEach(bar => {
+                    const randomHeight = Math.random() * 30 + 10; // Random height between 10px and 40px
+                    bar.style.height = `${randomHeight}px`;
+                });
+            }, 200); // Reduced interval to prevent flickering
+
+            // Optional: Stops animation after 5 seconds for demo purposes
+            setTimeout(() => clearInterval(interval), 5000);
+        });
+    </script>
+</body>
+</html>
