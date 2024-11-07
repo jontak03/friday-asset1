@@ -1,0 +1,1 @@
+# friday-asset1
